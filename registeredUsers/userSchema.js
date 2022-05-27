@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
 	},
 	phoneNumber: {
 		type: String,
-		required: true,
+
 		unique: true
 	},
 	age: {
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 	},
 	gender: { type: String },
 	type: { type: String },
-	Image: { data: Buffer, contentType: String }
+	Image: { type: Buffer }
 });
 const RegisteredUser = mongoose.model('RegisteredUser', userSchema);
 module.exports = RegisteredUser;

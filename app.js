@@ -4,11 +4,16 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 
 const routes = require('./routes');
+var cors = require('cors');
 
 const app = express();
+app.use(cors());
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
+//app.use(express.json({ limit: '50mb' }));
+//app.use(express.urlencoded({ limit: '50mb' }));
 
 app.use(
 	bodyParser.urlencoded({
@@ -54,7 +59,7 @@ app.use((err, req, res, next) => {
 	err.statusCode = err.statusCode || 500;
 
 	res.status(err.statusCode);
-	console.log(err.message);
+	console.log(err);
 
 	res.send({
 		status: 'fail',
