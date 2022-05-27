@@ -1,5 +1,5 @@
 const express = require('express');
-const userController = require('./users/userController');
+
 const ruserController = require('./registeredUsers/userController');
 const uploadUserImage = require('./util/multer');
 const router = express.Router();
